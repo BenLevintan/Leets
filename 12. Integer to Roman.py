@@ -11,5 +11,3 @@ class Solution(object):
             tens[(num % 100) // 10] +
             ones[num % 10]
         )
-    
-    
