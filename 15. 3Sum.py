@@ -17,3 +17,6 @@ class Solution(object):
     
 sol = Solution()
 print(sol.threeSum([-1,0,1,2,-1,-4]))
+
+
+# not final, need to solve for unique numbers and not any
