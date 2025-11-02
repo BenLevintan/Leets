@@ -5,15 +5,40 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         zero_list = []
+        seen = set()  # Set to track unique combinations
         
-
-        for i in nums:
-            for j in range(i + 1, len(nums)):
-                for k in range(j + 1, len(nums)):
-                    if i != j and i != k and j != k and nums[i] + nums[j] + nums[k] == 0:
-                        zero_list.append([nums[i] ,nums[j] ,nums[k]])
+        # Sort nums first to make it easier to avoid duplicates
+        nums.sort()
+        
+        for i in range(len(nums) - 2):
+            # Skip duplicates for the first element
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+                
+            left, right = i + 1, len(nums) - 1
+            
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+                
+                if total == 0:
+                    # To ensure uniqueness, sort the combination and use it as a tuple
+                    triplet = tuple([nums[i], nums[left], nums[right]])
+                    
+                    # Only add to the result if the triplet is not already in the set
+                    if triplet not in seen:
+                        seen.add(triplet)
+                        zero_list.append([nums[i], nums[left], nums[right]])
+                    
+                    # Move both pointers after finding a valid triplet
+                    left += 1
+                    right -= 1
+                elif total < 0:
+                    left += 1
+                else:
+                    right -= 1
 
         return zero_list
+    
     
 sol = Solution()
 print(sol.threeSum([-1,0,1,2,-1,-4]))
