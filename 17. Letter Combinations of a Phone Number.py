@@ -16,12 +16,15 @@ class Solution(object):
         }
         results = [""]
 
+        # Main loop that iterates through each digit in the input string
         for num in digits:
             new_results = []
             for message in results:
                 for char in t9_mapping[num]:
+                    # Concat the new char to the message and add it to the list
                     new_results.append(message + char)
                 
+            # Replace the values in 'results' (which are n length) with the new combinations (which are all n+1 length)
             results = new_results
         return results
     
