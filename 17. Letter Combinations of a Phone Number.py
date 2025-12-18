@@ -18,6 +18,9 @@ class Solution(object):
 
         # Main loop that iterates through each digit in the input string
         for num in digits:
+            if num not in t9_mapping:
+                print("Invalid input")
+                return
             new_results = []
             for message in results:
                 for char in t9_mapping[num]:
@@ -28,6 +31,6 @@ class Solution(object):
             results = new_results
         return results
     
-print(Solution().letterCombinations("23"))
-print(Solution().letterCombinations("2"))
+print(Solution().letterCombinations("111"))
+# print(Solution().letterCombinations("2"))
 
