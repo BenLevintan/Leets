@@ -31,6 +31,6 @@ class Solution(object):
             results = new_results
         return results
     
-print(Solution().letterCombinations("111"))
+print(Solution().letterCombinations("222"))
 # print(Solution().letterCombinations("2"))
 
