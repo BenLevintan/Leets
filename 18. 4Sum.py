@@ -1,6 +1,3 @@
-from pyparsing import nums
-
-
 class Solution(object):
     def fourSum(self, nums, target):
         """
