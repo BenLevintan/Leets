@@ -33,8 +33,4 @@ class Solution(object):
         
         return dummy.next 
     
-sol = Solution()
 
-l1 = ListNode(0)
-l2 = ListNode(2)
-print(sol.mergeTwoLists(l1, l2))
